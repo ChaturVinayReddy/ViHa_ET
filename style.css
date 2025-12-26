@@ -1,7 +1,12 @@
 /* Reset */
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   box-sizing: border-box;
+  
 }
+
 
 body {
   margin: 0;
@@ -59,9 +64,7 @@ body {
   transform: translate(-50%, 0);
 }
 
-#eventTime{
-  box-sizing: border-box;
-}
+
 /* App Container */
 .app {
   max-width: 720px;
@@ -81,12 +84,16 @@ header h1 {
   margin: 0;
   font-size: 1.8rem;
   color: white;
+  font-family: "Jersey 10", sans-serif;
 }
 
 header p {
   margin-top: 6px;
   color: rgba(255,255,255,0.85);
   font-size: 0.9rem;
+  font-family: "Mountains of Christmas", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Tabs */
@@ -95,6 +102,8 @@ header p {
   margin: 15px;
   border-radius: 16px;
   overflow: hidden;
+
+
 }
 
 .tab {
@@ -105,6 +114,8 @@ header p {
   color: white;
   font-weight: 600;
   cursor: pointer;
+   font-family: "Saira", sans-serif;
+
 }
 
 .tab.active {
@@ -130,6 +141,8 @@ header p {
 .card {
   padding: 16px;
   border-radius: 18px;
+   font-family: "Saira", sans-serif;
+
 }
 
 /* Event Card */
@@ -138,6 +151,8 @@ header p {
   border-radius: 18px;
   background: rgba(255,255,255,0.4);
   backdrop-filter: blur(14px);
+   font-family: "Saira", sans-serif;
+  
 }
 
 .event b {
@@ -147,7 +162,7 @@ header p {
 .elapsed {
   margin-top: 8px;
   font-weight: 700;
-  color: #ff4e50;
+  color: #831718;
 }
 
 .date {
@@ -185,8 +200,93 @@ header p {
   padding: 10px;
   border-radius: 12px;
   border: none;
-  background: rgba(255,78,80,0.9);
+  background: #831718;
   color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+.input-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+}
+.hint {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Modal Background */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* Modal Content */
+.modal-content {
+  width: 90%;
+  max-width: 360px;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: white;
+}
+
+/* Inputs */
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+/* Buttons */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.secondary-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.5);
+}
+
+.primary-btn {
+  flex: 1;
+}
+
+.edit-btn {
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  background: rgb(44 63 83 / 90%);
+  color: white;
+  cursor: pointer;
+  margin-right: 6px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#eventTime{
+  box-sizing: border-box;
 }
 
 /* Desktop */
@@ -201,4 +301,3 @@ header p {
   padding-bottom: 20px;
 }
 }
-

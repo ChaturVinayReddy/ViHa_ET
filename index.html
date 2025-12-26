@@ -2,64 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Event Tracker</title>
+  <title>ViHa </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Main Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Background -->
+<!-- Background Layer -->
 <div class="bg"></div>
 
+<!-- App Container -->
 <div class="app glass">
+
+  <!-- Header -->
   <header class="glass">
     <h1>ViHa</h1>
     <p>Track time beautifully</p>
   </header>
 
-  <!-- Tabs -->
+  <!-- Navigation Tabs -->
   <nav class="tabs glass">
     <button class="tab active" onclick="switchTab('count', this)">Counting</button>
     <button class="tab" onclick="switchTab('add', this)">Add Event</button>
-    <button class="tab" onclick="switchTab('details', this)">Details</button>
+    <button class="tab" onclick="switchTab('details', this)">Event Details</button>
   </nav>
 
-  <!-- Counting -->
+  <!-- ================= COUNTING SECTION ================= -->
   <section id="count" class="section">
-    <div id="countList" class="card-list"></div>
-  </section>
-
-  <!-- Add -->
-  <section id="add" class="section hidden">
-    <div class="glass card form-card">
-      <input type="text" id="eventName" placeholder="Event name">
-      <input type="datetime-local" id="eventTime">
-      <button class="primary-btn" onclick="addEvent()">Save Event</button>
+    <div id="countList" class="card-list">
+      <!-- Counting cards will be injected here -->
     </div>
   </section>
 
-  <!-- Details -->
-  <section id="details" class="section hidden">
-    <div id="detailsList" class="card-list"></div>
+  <!-- ================= ADD EVENT SECTION ================= -->
+  <section id="add" class="section hidden">
+    <div class="glass card form-card">
+
+      <input
+        type="text"
+        id="eventName"
+        placeholder="Event name (Marriage, Birthday)"
+      >
+<label class="input-label">Event Date & Time</label>
+<input type="datetime-local" id="eventTime">
+<small class="hint">Tap to select date & time</small>
+
+     
+
+      <button
+        class="primary-btn"
+        onclick="addEvent()"
+      >
+        Save Event
+      </button>
+
+    </div>
   </section>
+
+  <!-- ================= EVENT DETAILS SECTION ================= -->
+  <section id="details" class="section hidden">
+    <div id="detailsList" class="card-list">
+      <!-- Event detail cards will be injected here -->
+    </div>
+  </section>
+
 </div>
 
-<!-- Firebase -->
+<!-- Toast Notification -->
+<div id="toast" class="toast hidden">
+  ✅ Event successfully added
+</div>
+
+<!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<!-- Application Logic -->
 <script src="script.js"></script>
 
+<!-- Tab Switching Script -->
 <script>
-function switchTab(id, btn) {
-  document.querySelectorAll(".section").forEach(s => s.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
+  function switchTab(id, btn) {
+    document.querySelectorAll(".section").forEach(section => {
+      section.classList.add("hidden");
+    });
 
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-  btn.classList.add("active");
-}
+    document.getElementById(id).classList.remove("hidden");
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+  }
 </script>
-<!-- Toast -->
-<div id="toast" class="toast hidden">✅ Event successfully added</div>
 
 </body>
 </html>
