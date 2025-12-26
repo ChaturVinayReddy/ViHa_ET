@@ -202,7 +202,7 @@ header p {
   border: none;
   background: #831718;
   color: white;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Saira", sans-serif;
 }
 .input-label {
   display: block;
@@ -282,7 +282,7 @@ header p {
   color: white;
   cursor: pointer;
   margin-right: 6px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Saira", sans-serif;
 }
 
 #eventTime{
@@ -301,4 +301,5 @@ header p {
   padding-bottom: 20px;
 }
 }
+
 
