@@ -1,0 +1,201 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background Image */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    /*linear-gradient(135deg, rgba(255,78,80,0.4), rgba(250,208,196,0.4)),*/
+    url("./img.png");
+  background-size: cover;
+  background-position: center;
+  filter: blur(0px);
+  z-index: -1;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* Toast Message */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #1a1a1a;
+  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 999;
+}
+
+.toast.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 20px);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+
+/* App Container */
+.app {
+  max-width: 720px;
+  margin: 20px 20px;
+  border-radius: 24px;
+  padding-bottom: 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 24px;
+  border-radius: 24px 24px 0 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: white;
+}
+
+header p {
+  margin-top: 6px;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  margin: 15px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: rgba(255,255,255,0.35);
+}
+
+/* Sections */
+.section {
+  padding: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Cards */
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 18px;
+}
+
+/* Event Card */
+.event {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(14px);
+}
+
+.event b {
+  font-size: 1rem;
+}
+
+.elapsed {
+  margin-top: 8px;
+  font-weight: 700;
+  color: #ff4e50;
+}
+
+.date {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Form */
+.form-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.7);
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Delete */
+.delete-btn {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,78,80,0.9);
+  color: white;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ .app {
+  max-width: 720px;
+  margin: 20px auto;
+  border-radius: 24px;
+  padding-bottom: 20px;
+}
+}

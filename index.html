@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg"></div>
+
+<div class="app glass">
+  <header class="glass">
+    <h1>ViHa</h1>
+    <p>Track time beautifully</p>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs glass">
+    <button class="tab active" onclick="switchTab('count', this)">Counting</button>
+    <button class="tab" onclick="switchTab('add', this)">Add Event</button>
+    <button class="tab" onclick="switchTab('details', this)">Details</button>
+  </nav>
+
+  <!-- Counting -->
+  <section id="count" class="section">
+    <div id="countList" class="card-list"></div>
+  </section>
+
+  <!-- Add -->
+  <section id="add" class="section hidden">
+    <div class="glass card form-card">
+      <input type="text" id="eventName" placeholder="Event name">
+      <input type="datetime-local" id="eventTime">
+      <button class="primary-btn" onclick="addEvent()">Save Event</button>
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section id="details" class="section hidden">
+    <div id="detailsList" class="card-list"></div>
+  </section>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="script.js"></script>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll(".section").forEach(s => s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  btn.classList.add("active");
+}
+</script>
+<!-- Toast -->
+<div id="toast" class="toast hidden">✅ Event successfully added</div>
+
+</body>
+</html>
