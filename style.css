@@ -59,7 +59,9 @@ body {
   transform: translate(-50%, 0);
 }
 
-
+#eventTime{
+  box-sizing: border-box;
+}
 /* App Container */
 .app {
   max-width: 720px;
@@ -199,3 +201,4 @@ header p {
   padding-bottom: 20px;
 }
 }
+
